@@ -2,6 +2,8 @@ import { Card, List, Tag, Grid, Space, Button } from 'antd-mobile';
 import { AntOutline, SmileOutline, UserCircleOutline, CalendarOutline, ClockCircleOutline, EnvironmentOutline, ShopbagOutline, CheckShieldOutline } from 'antd-mobile-icons';
 import styles from './Preview.module.css';
 import BatteryImage from '../../assets/battery.jpg'
+import _doctorName from '../../config/name';
+import place from '../../config/place';
 
 // Helper function to format date
 const formatDate = (dateString: string) => {
@@ -22,11 +24,12 @@ export default ({ name, date, timeSlot, department }: {
     department: string;
 }) => {
     const hospitalName = "中山大学附属第一医院";
-    const registrationId = `REG-${Math.floor(Math.random() * 100000000)}`;
-    const doctorName = "吉伊";
+    let randomNumIndex = Math.floor(Math.random() * 100);
+    let placeNumIndex = Math.floor(Math.random() * 10);
+    const doctorName = _doctorName[randomNumIndex];
     const registrationFee = "25.00 元";
     const paymentStatus = "已支付";
-    const clinicLocation = "门诊楼三层 A区 302诊室";
+    const clinicLocation = place[placeNumIndex];
 
     // Get current time for the status bar
     const now = new Date();
@@ -67,7 +70,7 @@ export default ({ name, date, timeSlot, department }: {
                             <List.Item prefix={<EnvironmentOutline />} extra={clinicLocation}>
                                 就诊地点
                             </List.Item>
-                            <List.Item extra={registrationId}>
+                            <List.Item>
                                 挂号单号
                             </List.Item>
                             <List.Item extra={<Tag color='success'>{paymentStatus}</Tag>}>
