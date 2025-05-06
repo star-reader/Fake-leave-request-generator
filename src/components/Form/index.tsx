@@ -52,25 +52,20 @@ export default ({
     onDepartmentChange,
     onSubmit
 }: FormProps) => {
-    const [form] = Form.useForm(); // antd Form instance
+    const [form] = Form.useForm();
 
-    // Function to disable dates before today
     const disabledDate = (current: any) => {
         return current && current < new Date().setHours(0, 0, 0, 0);
     };
 
-    // Handle antd form submission
-    const handleAntdSubmit = (values: any) => {
-        // console.log('Form values:', values); // For debugging
-        // We still call the parent onSubmit which handles the state update and navigation
+    const handleAntdSubmit = () => {
         onSubmit(); 
     };
 
-    // Update form fields when props change (e.g., when coming back from preview)
     React.useEffect(() => {
         form.setFieldsValue({
             name,
-            date: date ? moment(date) : null, // antd DatePicker uses moment object or null
+            date: date ? moment(date) : null,
             timeSlot,
             department,
         });
@@ -109,7 +104,7 @@ export default ({
                 >
                     <DatePicker
                         placeholder='请选择日期'
-                        onChange={(date, dateString) => onDateChange(dateString as string)}
+                        onChange={(_, dateString) => onDateChange(dateString as string)}
                         disabledDate={disabledDate}
                         // value prop is managed by Form.Item
                     />

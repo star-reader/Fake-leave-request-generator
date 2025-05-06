@@ -1,5 +1,5 @@
 import { Card, List, Tag, Grid, Space, Button } from 'antd-mobile';
-import { AntOutline, SmileOutline, UserCircleOutline, CalendarOutline, ClockCircleOutline, EnvironmentOutline, ShopbagOutline, CheckShieldOutline } from 'antd-mobile-icons';
+import { AntOutline, SmileOutline, UserCircleOutline, CalendarOutline, ClockCircleOutline, EnvironmentOutline, ShopbagOutline } from 'antd-mobile-icons';
 import styles from './Preview.module.css';
 import BatteryImage from '../../assets/battery.jpg'
 import _doctorName from '../../config/name';
