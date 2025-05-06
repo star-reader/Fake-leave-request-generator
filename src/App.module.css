@@ -24,18 +24,19 @@
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Align iPhone to top */
-  overflow-y: auto; /* Scroll if content overflows */
+  align-items: flex-start;
+  overflow-y: auto;
 }
 
 .controlsPane {
-  flex-basis: 300px; /* Adjust width as needed */
+  flex-basis: 300px;
   max-width: 400px;
+  margin: 0 auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  overflow-y: auto; /* Scroll if content overflows */
+  overflow-y: auto; 
 }
 
 /* Mobile view: stack preview and controls */
