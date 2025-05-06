@@ -68,16 +68,26 @@
     font-size: 14px;
     font-weight: 600;
     height: 52px;
+    background-color: #fff;
+    border-top-left-radius: 56px;
+    border-top-right-radius: 56px;
 }
 
 .time {
     font-weight: 600;
+    font-size: 16px;
 }
 
 .statusIcons {
     display: flex;
     align-items: center;
     gap: 6px;
+    font-size: 16px;
+}
+
+.statusIcons img{
+    position: relative;
+    width: 70px;
 }
 
 .fiveGIcon::before {
@@ -121,10 +131,10 @@
 .batteryIcon::before {
     content: '';
     display: inline-block;
-    width: 22px;
-    height: 12px;
+    width: 28px;
+    height: 15px;
     border: 1px solid #323232;
-    border-radius: 3px;
+    border-radius: 5px;
     position: relative;
     background: linear-gradient(to right, #323232 86%, transparent 86%);
     vertical-align: middle;

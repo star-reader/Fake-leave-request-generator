@@ -1,6 +1,7 @@
 import { Card, List, Tag, Grid, Space, Button } from 'antd-mobile';
 import { AntOutline, SmileOutline, UserCircleOutline, CalendarOutline, ClockCircleOutline, EnvironmentOutline, ShopbagOutline, CheckShieldOutline } from 'antd-mobile-icons';
 import styles from './Preview.module.css';
+import BatteryImage from '../../assets/battery.jpg'
 
 // Helper function to format date
 const formatDate = (dateString: string) => {
@@ -20,10 +21,10 @@ export default ({ name, date, timeSlot, department }: {
     timeSlot: string;
     department: string;
 }) => {
-    const hospitalName = "北京协和医院"; // Example hospital name
+    const hospitalName = "中山大学附属第一医院";
     const registrationId = `REG-${Math.floor(Math.random() * 100000000)}`;
-    const doctorName = "李医生"; // Example doctor name
-    const registrationFee = "25.00 元"; // Example fee
+    const doctorName = "吉伊";
+    const registrationFee = "25.00 元";
     const paymentStatus = "已支付";
     const clinicLocation = "门诊楼三层 A区 302诊室";
 
@@ -38,13 +39,7 @@ export default ({ name, date, timeSlot, department }: {
                 <div className={styles.statusBar}>
                     <span className={styles.time}>{currentTime}</span>
                     <div className={styles.statusIcons}>
-                        {/* <span className={styles.cellularIcon}></span> */}
-                        <span>5G</span>
-                        {/* <span className={styles.wifiIcon}></span> */}
-                        <span className={styles.batteryContainer}>
-                            {/* <span>86%</span> */}
-                            <span className={styles.batteryIcon}></span>
-                        </span>
+                        <img src={BatteryImage} alt="battery image" />
                     </div>
                 </div>
                 <div className={styles.iphoneScreen}> {/* Changed from appContent to iphoneScreen to match CSS for scrolling etc. */}

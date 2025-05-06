@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { ConfigProvider as AntdMobileConfigProvider } from 'antd-mobile';
 import { ConfigProvider as AntdConfigProvider, Layout, Alert, Button, Typography } from 'antd';
 import enUS_am from 'antd-mobile/es/locales/en-US';
-import enUS_antd from 'antd/locale/en_US'; // Ant Design locale
 import FormComponent from './components/Form';
 import Preview from './components/Preview';
 import HeaderComponent from './components/Header'; // Renamed to avoid conflict
@@ -68,8 +67,8 @@ export default () => {
     const previewElement = document.getElementById('phone-body');
     if (previewElement) {
       try {
-        const canvas = await html2canvas(previewElement, { 
-          allowTaint: true, 
+        const canvas = await html2canvas(previewElement, {
+          allowTaint: true,
           useCORS: true,
         });
         const image = canvas.toDataURL('image/png');
@@ -87,7 +86,7 @@ export default () => {
   };
 
   const getHeaderTitle = () => {
-    if (currentStep === 'selection') return "选择凭证类型";
+    if (currentStep === 'selection') return "虚拟请假条生成器";
     if (currentStep === 'form') return selectedType === 'registrationSlip' ? "在线预约挂号" : "填写信息";
     if (currentStep === 'preview') return selectedType === 'registrationSlip' ? "挂号单预览" : "凭证预览";
     return "凭证生成器";
@@ -123,9 +122,9 @@ export default () => {
             <Paragraph type="danger">
               <strong>重要提示：</strong> 本应用生成的凭证仅供娱乐或概念演示，请勿用于任何非法用途。任何滥用行为由用户自行承担责任。
             </Paragraph>
-            <Button 
-              type="primary" 
-              icon={<DownloadOutlined />} 
+            <Button
+              type="primary"
+              icon={<DownloadOutlined />}
               onClick={handleSaveAsImage}
               block
               size="large"
@@ -145,22 +144,22 @@ export default () => {
   };
 
   return (
-    <AntdConfigProvider locale={enUS_antd}>
+    <AntdConfigProvider>
       <AntdMobileConfigProvider locale={enUS_am}>
         <Layout className={styles.appContainer}>
-          <HeaderComponent 
-            title={getHeaderTitle()} 
-            onBack={currentStep !== 'selection' ? handleBack : undefined} 
+          <HeaderComponent
+            title={getHeaderTitle()}
+            onBack={currentStep !== 'selection' ? handleBack : undefined}
           />
           <Content className={styles.contentArea}>
             {currentStep !== 'selection' && currentStep !== 'preview' && (
-                 <Alert
-                 message="重要提示"
-                 description="本应用生成的凭证仅供娱乐或概念演示，请勿用于任何非法用途。任何滥用行为由用户自行承担责任。"
-                 type="warning"
-                 showIcon
-                 style={{ margin: '16px auto', maxWidth: '600px' }}
-               />
+              <Alert
+                message="重要提示"
+                description="本应用生成的凭证仅供娱乐或概念演示，请勿用于任何非法用途。任何滥用行为由用户自行承担责任。"
+                type="warning"
+                showIcon
+                style={{ margin: '16px auto', maxWidth: '600px' }}
+              />
             )}
             {renderContent()}
           </Content>
