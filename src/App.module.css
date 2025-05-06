@@ -1,0 +1,63 @@
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.contentArea {
+  padding-top: 45px; /* Adjust if header height changes */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.previewLayout {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  padding: 20px;
+  gap: 20px;
+}
+
+.previewPane {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align iPhone to top */
+  overflow-y: auto; /* Scroll if content overflows */
+}
+
+.controlsPane {
+  flex-basis: 300px; /* Adjust width as needed */
+  max-width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Scroll if content overflows */
+}
+
+/* Mobile view: stack preview and controls */
+@media (max-width: 768px) {
+  .previewLayout {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .previewPane {
+    align-items: center; /* Center iPhone on mobile */
+  }
+
+  .controlsPane {
+    flex-basis: auto;
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+.fullPageContent {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}

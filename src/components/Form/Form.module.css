@@ -1,0 +1,35 @@
+.formContainer {
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.formContainer :global(.ant-form-item-label > label) {
+  font-weight: 500;
+}
+
+.formContainer :global(.ant-picker) {
+  width: 100%;
+}
+
+.formContainer :global(.ant-select) {
+  width: 100%;
+}
+
+.submitButton {
+  margin-top: 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .formContainer {
+    padding: 16px;
+    margin: 10px auto;
+    box-shadow: none;
+    border-radius: 0;
+  }
+}

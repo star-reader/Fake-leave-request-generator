@@ -1,0 +1,51 @@
+.appHeader {
+    background-color: #ffffff !important; /* Ant Design Header default is dark */
+    border-bottom: 1px solid #f0f0f0; /* Subtle border */
+    padding: 0 24px !important; /* Adjust padding as needed */
+    position: fixed !important; /* Keep header fixed */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure header is above other content */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* For back button and title alignment */
+}
+
+.headerTitle {
+    color: rgba(0, 0, 0, 0.85) !important; /* Standard Ant Design title color */
+    font-weight: 500 !important;
+    font-size: 18px !important; /* Adjust size as needed */
+    line-height: 64px; /* Ant Design Header default height */
+    margin: 0 !important;
+}
+
+.backButton {
+    color: rgba(0, 0, 0, 0.65) !important; /* Standard icon color */
+    font-size: 16px !important;
+    padding: 0 !important; /* Remove default button padding */
+    height: auto !important; /* Adjust height */
+    margin-right: 16px; /* Space between back button and title */
+}
+
+.backButton:hover {
+    color: #1890ff !important; /* Ant Design primary color on hover */
+}
+
+/* Ensure content below header is not obscured */
+:global(.ant-layout-content) {
+    /* This should be handled in App.module.css or App.tsx's contentArea style */
+    /* padding-top: 64px; */ 
+}
+
+/* Responsive adjustments if needed */
+@media (max-width: 768px) {
+    .appHeader {
+        padding: 0 16px !important;
+    }
+    .headerTitle {
+        font-size: 17px !important;
+    }
+    .backButton {
+        margin-right: 12px;
+    }
+}
