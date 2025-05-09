@@ -76,10 +76,9 @@ export default ({
             <Form
                 form={form}
                 layout='vertical'
-                onFinish={handleAntdSubmit} // Use antd's onFinish
+                onFinish={handleAntdSubmit}
                 initialValues={{
                     name,
-                    // antd DatePicker expects a moment object for initialValue if date is pre-filled
                     date: date ? moment(date) : undefined,
                     timeSlot,
                     department,
