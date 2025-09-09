@@ -4,11 +4,15 @@
 
 注：目前没有录入医院选择功能，将在后续开发；因作者在广州，所以只留了中山一院的数据
 
+## 预览
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/f2d579fa-e97b-4450-8b6c-9655202795b2" />
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/bc334a22-14a1-4f59-a37c-c835b4438d9b" />
+
 **todo**
 
-[ ] 医院选择或输入
+- [ ] 医院选择或输入
 
-[ ] 其他形式的请假信息开发
+- [ ] 其他形式的请假信息开发
 
 ## 免责声明
 
