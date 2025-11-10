@@ -17,13 +17,14 @@ const formatDate = (dateString: string) => {
     return `${year}年${month}月${day}日 ${weekDay}`;
 };
 
-export default ({ name, date, timeSlot, department }: {
+export default ({ name, date, timeSlot, department, hospital }: {
     name: string;
     date: string;
     timeSlot: string;
     department: string;
+    hospital: string;
 }) => {
-    const hospitalName = "中山大学附属第一医院";
+    const hospitalName = hospital || "中山大学附属第一医院";
     let randomNumIndex = Math.floor(Math.random() * 100);
     let placeNumIndex = Math.floor(Math.random() * 10);
     const doctorName = _doctorName[randomNumIndex];

@@ -18,6 +18,7 @@ export interface FormDataState {
   date: string;
   timeSlot: string;
   department: string;
+  hospital: string;
 }
 
 type AppStep = 'selection' | 'form' | 'preview';
@@ -27,7 +28,8 @@ export default () => {
     name: '',
     date: '',
     timeSlot: '',
-    department: ''
+    department: '',
+    hospital: ''
   });
   const [currentStep, setCurrentStep] = useState<AppStep>('selection');
   const [selectedType, setSelectedType] = useState<string | null>(null);
@@ -47,7 +49,7 @@ export default () => {
   };
 
   const handleSubmit = () => {
-    if (formData.name && formData.date && formData.timeSlot && formData.department) {
+    if (formData.name && formData.date && formData.timeSlot && formData.department && formData.hospital) {
       setCurrentStep('preview');
     } else {
       console.log("Form data is incomplete");
@@ -104,6 +106,7 @@ export default () => {
           onDateChange={(dateString) => setFormData({ ...formData, date: dateString })}
           onTimeSlotChange={(timeSlot) => setFormData({ ...formData, timeSlot })}
           onDepartmentChange={(department) => setFormData({ ...formData, department })}
+          onHospitalChange={(hospital) => setFormData({ ...formData, hospital })}
           onSubmit={handleSubmit}
         />
       );
