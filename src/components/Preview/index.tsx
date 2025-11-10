@@ -1,5 +1,6 @@
 import { Card, List, Tag, Grid, Space, Button } from 'antd-mobile';
 import { AntOutline, SmileOutline, UserCircleOutline, CalendarOutline, ClockCircleOutline, EnvironmentOutline, ShopbagOutline } from 'antd-mobile-icons';
+import { useRef } from 'react'
 import styles from './Preview.module.css';
 import BatteryImage from '../../assets/battery.jpg'
 import _doctorName from '../../config/name';
@@ -17,6 +18,14 @@ const formatDate = (dateString: string) => {
     return `${year}年${month}月${day}日 ${weekDay}`;
 };
 
+// Helper to generate a stable random registration number per mount
+const generateRegistrationNumber = (dateString: string) => {
+    const d = dateString ? new Date(dateString) : new Date();
+    const datePart = `${d.getFullYear()}${(d.getMonth() + 1).toString().padStart(2, '0')}${d.getDate().toString().padStart(2, '0')}`;
+    const randPart = Math.random().toString().slice(2, 8); // 6-digit numeric
+    return `GH-${datePart}-${randPart}`;
+};
+
 export default ({ name, date, timeSlot, department, hospital }: {
     name: string;
     date: string;
@@ -31,6 +40,13 @@ export default ({ name, date, timeSlot, department, hospital }: {
     const registrationFee = "25.00 元";
     const paymentStatus = "已支付";
     const clinicLocation = place[placeNumIndex];
+
+    // Generate a stable registration number for this preview mount
+    const registrationNumberRef = useRef<string>('');
+    if (!registrationNumberRef.current) {
+        registrationNumberRef.current = generateRegistrationNumber(date);
+    }
+    const registrationNumber = registrationNumberRef.current;
 
     // Get current time for the status bar
     const now = new Date();
@@ -71,7 +87,7 @@ export default ({ name, date, timeSlot, department, hospital }: {
                             <List.Item prefix={<EnvironmentOutline />} extra={clinicLocation}>
                                 就诊地点
                             </List.Item>
-                            <List.Item>
+                            <List.Item extra={<Tag color='warning' fill='outline'>{registrationNumber}</Tag>}>
                                 挂号单号
                             </List.Item>
                             <List.Item extra={<Tag color='success'>{paymentStatus}</Tag>}>
@@ -94,7 +110,7 @@ export default ({ name, date, timeSlot, department, hospital }: {
                                 <Button block color='primary' fill='outline'>查看路线</Button>
                             </Grid.Item>
                             <Grid.Item>
-                                <Button className="adm-button adm-button-block adm-button-outline adm-button-success">联系客服</Button>
+                                <Button className="adm-button adm-button-block adm-button-outline adm-button-success">联系信息</Button>
                             </Grid.Item>
                         </Grid>
                     </Card>
